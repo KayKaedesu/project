@@ -1,0 +1,1 @@
+play by open and run othello.py
