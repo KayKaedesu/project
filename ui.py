@@ -1,7 +1,6 @@
 import pygame
 import sys
 from pygame.locals import *
-from pygame_menu.themes import Theme
 from config import BLACK, WHITE, DEFAULT_LEVEL, HUMAN, COMPUTER
 import os
 import pygame_menu
@@ -65,14 +64,16 @@ class Gui:
 
         pygame.mixer.music.load(self.menusound)
         pygame.mixer.music.play(-1)
+        font1 = pygame_menu.font.FONT_8BIT
+        font2 = pygame.font.SysFont("Courier New", 34)
         self.menu = pygame_menu.Menu(960, 1280, 'Othello',
                                      theme=pygame_menu.themes.THEME_DARK)
         self.screen.blit(self.menubg, (0, 0))
-        self.menu.add_button('Play', lambda: start_cb(self.player1, self.player2, self.level))
-        self.menu.add_selector('First player', [[HUMAN, 1] ,[COMPUTER, 2]],
-                               onchange=self.set_player_1)
-        self.menu.add_selector('Second player', [[COMPUTER, 2], [HUMAN, 1]],
-                               onchange=self.set_player_2)
+        self.menu.add_button('Play', lambda: start_cb(self.player1, self.player2, self.level), font_name = font1, font_color = (173, 216, 230))
+        self.menu.add_selector('First Player', [[HUMAN, 1] ,[COMPUTER, 2]],
+                               onchange=self.set_player_1,font_name = font1, font_color = (173, 216, 230))
+        self.menu.add_selector('Second Player', [[COMPUTER, 2], [HUMAN, 1]],
+                               onchange=self.set_player_2,font_name = font1, font_color = (173, 216, 230))
         self.menu.mainloop(self.screen)
         pygame.mixer.music.stop()
 
