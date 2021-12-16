@@ -1,1 +1,1 @@
-play by open and run othello.py
+play by open and run othello.py on the terminal
